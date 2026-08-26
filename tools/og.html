@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  .card { position: relative; width: 1200px; height: 630px; padding: 68px 72px;
+          display: flex; flex-direction: column; justify-content: space-between; }
+  .card .wordmark { font-size: 2.3rem; }
+  h1 { font-size: 3.4rem; max-width: 15ch; }
+  .foot { display: flex; gap: 1.2rem; align-items: baseline; }
+  #og-spiral { position: absolute; right: -70px; bottom: -90px; width: 560px; height: 560px; opacity: .9; }
+</style>
+<div class="card">
+  <canvas id="og-spiral" width="560" height="560"></canvas>
+  <span class="wordmark"><span>blink</span><b>neuron</b></span>
+  <h1>I build things to find out whether I can.</h1>
+  <p class="foot mono"><span>Krzysztof Prawdzik</span><span>·</span><span>blinkneuron.eu</span></p>
+</div>
+<script>
+  const c = document.getElementById('og-spiral'), x2 = c.getContext('2d');
+  const SIZE = 41, HALF = 20;
+  const prime = n => { if (n < 2) return false; if (n % 2 === 0) return n === 2;
+    for (let i = 3; i * i <= n; i += 2) if (n % i === 0) return false; return true; };
+  const dirs = [[1,0],[0,-1],[-1,0],[0,1]];
+  let x = 0, y = 0, n = 1, leg = 1, d = 0; const cells = [[1,0,0]];
+  while (n < SIZE * SIZE) {
+    for (let t = 0; t < 2 && n < SIZE * SIZE; t++) {
+      for (let s = 0; s < leg && n < SIZE * SIZE; s++) { x += dirs[d][0]; y += dirs[d][1]; n++; cells.push([n,x,y]); }
+      d = (d + 1) % 4;
+    }
+    leg++;
+  }
+  const st = getComputedStyle(document.documentElement);
+  const step = 560 / SIZE;
+  for (const [v, cx, cy] of cells) {
+    const reach = Math.max(Math.abs(cx), Math.abs(cy)) / HALF;
+    const a = reach < 0.5 ? 1 : Math.max(0.15, 1 - (reach - 0.5) / 0.5);
+    const lit = prime(v);
+    x2.globalAlpha = lit ? a : a * 0.5;
+    x2.fillStyle = lit ? st.getPropertyValue('--cyan').trim() : st.getPropertyValue('--edge-2').trim();
+    x2.beginPath();
+    x2.arc(280 + cx * step, 280 + cy * step, step * (lit ? 0.29 : 0.12), 0, Math.PI * 2);
+    x2.fill();
+  }
+</script>

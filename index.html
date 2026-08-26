@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Applied before the first paint, so a stored theme never flashes the other one. -->
+<script>try{var t=localStorage.getItem('bn.theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>BlinkNeuron — Krzysztof Prawdzik</title>
+<meta name="description" content="After-hours projects built with AI acceleration: Ulam (maths for children, heading for Google Play), Kvasir, Minerals, Harpa, DadQuest.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="canonical" href="https://blinkneuron.eu/">
+<link rel="icon" href="/assets/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blinkneuron.eu/">
+<meta property="og:title" content="BlinkNeuron — Krzysztof Prawdzik">
+<meta property="og:description" content="I build things to find out whether I can. After-hours projects, accelerated by AI.">
+<meta property="og:image" content="https://blinkneuron.eu/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main" data-pl="Przejdź do treści">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <div>
+      <a class="wordmark" href="/" aria-label="BlinkNeuron"><span>blink</span><b>neuron</b></a>
+      <p class="byline mono">Krzysztof Prawdzik · BlinkNeuron</p>
+    </div>
+
+    <!-- Both controls need JavaScript, so they stay hidden until it runs. -->
+    <div class="controls" hidden>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="lang-btn mono" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn mono" data-lang="pl" aria-pressed="false">PL</button>
+      </div>
+      <button type="button" class="theme-btn" id="theme" aria-label="Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+          <path fill="currentColor" d="M20.7 14.2A8.6 8.6 0 0 1 9.8 3.3a.8.8 0 0 0-1.1-.9 9.9 9.9 0 1 0 12.9 12.9.8.8 0 0 0-.9-1.1Z"/>
+        </svg>
+        <svg class="i-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6"/>
+          </g>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ─────────────────────────────  HERO  ───────────────────────────── -->
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <p class="eyebrow" data-pl="Po godzinach">After hours</p>
+      <h1 data-pl="Robię rzeczy, żeby sprawdzić, czy dam radę.">I build things to find out whether I can.</h1>
+      <p class="lede" data-pl="Wieczorami buduję własne pomysły, z akceleracją AI — ale odpowiedzialność za wynik zostaje po mojej stronie. Każdy projekt tutaj ma prawdziwego użytkownika: moje dzieci, ludzi z pracy albo mnie. Dlatego żaden nie ma prawa <b>prawie</b> działać.">In the evenings I build my own ideas, accelerated by AI — but the responsibility for the result stays with me. Every project here has a real user: my kids, people I work with, or me. So none of them is allowed to <b>almost</b> work.</p>
+      <p class="cta-row">
+        <a class="btn" href="#projects" data-pl="Zobacz projekty">See the projects</a>
+        <a class="btn ghost" href="#contact" data-pl="Napisz do mnie">Write to me</a>
+      </p>
+    </div>
+
+    <figure class="hero-figure">
+      <canvas id="spiral" width="420" height="420" role="img"
+              aria-label="The Ulam spiral: primes lit on a grid, falling onto diagonal lines"
+              data-pl-label="Spirala Ulama: liczby pierwsze zapalone na siatce, układające się w ukośne linie"></canvas>
+      <figcaption class="mono" data-pl="Spirala Ulama. Jedno pole na liczbę, pierwsze zapalone. Nikt do końca nie wie, dlaczego układają się w ukośne linie — a dziecko odkrywa to samo, rozwiązując zadania w Ulamie.">The Ulam spiral. One cell per number, primes lit. Nobody fully knows why they fall onto diagonals — and a child rediscovers that alone, by solving tasks in Ulam.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ────────────────────────  FEATURED: ULAM  ──────────────────────── -->
+  <section class="wrap">
+    <article class="feature">
+      <div class="feature-copy">
+        <p class="eyebrow" data-pl="Pierwsza aplikacja w Google Play">First app on Google Play</p>
+        <h2 data-pl="Ulam — matematyka jako zagadka, nie dryl">Ulam — maths as a puzzle, not a drill</h2>
+        <p data-pl="Aplikacja do ćwiczenia matematyki w klasach 1–4, zbudowana dla mojego ośmioletniego syna. Zadania idą za konkursem Alfik Matematyczny: liczy się spryt i kojarzenie faktów, a nie znajomość szkolnych regułek. Dziecko wpisuje liczbę, zamiast wybierać jedną z pięciu odpowiedzi — wpisanej nie da się trafić przypadkiem. Każde rozwiązane zadanie zapala kolejne pole w spirali Ulama.">An app for practising maths in grades 1–4, built for my eight-year-old son. The tasks follow Alfik Matematyczny, a Polish contest where wit and putting facts together count for more than knowing the school rules. The child types a number instead of picking one of five answers — a typed number cannot be guessed. Every solved task lights the next cell in the Ulam spiral.</p>
+
+        <ul class="facts mono">
+          <li data-pl="1038 zadań konkursowych z lat 2015–2025, z kluczem odpowiedzi">1038 contest tasks, 2015–2025, with the answer keys</li>
+          <li data-pl="13 generatorów zadań; każde odtwarza się z (id, seed)">13 question generators; every question replays from (id, seed)</li>
+          <li data-pl="57 testów; jeden przepuszcza 400 ziaren przez każdy generator">57 tests; one of them runs 400 seeds through every generator</li>
+          <li data-pl="W całości offline. Bez konta, bez reklam, bez zbierania danych.">Fully offline. No account, no ads, no data collected.</li>
+        </ul>
+
+        <p class="status-note" data-pl="<b>Status:</b> gotowa do pierwszego wydania na torze testów wewnętrznych Google Play. Linku do sklepu jeszcze nie ma — pojawi się tutaj, kiedy aplikacja przejdzie."><b>Status:</b> ready for its first release on the Google Play internal testing track. There is no store link yet — it appears here when the app gets through.</p>
+
+        <p class="cta-row">
+          <a class="btn small" href="/ulam/privacy/" data-pl="Polityka prywatności">Privacy policy</a>
+          <span class="btn small disabled mono" aria-disabled="true" data-pl="Google Play — wkrótce">Google Play — soon</span>
+        </p>
+      </div>
+
+      <div class="shots" aria-hidden="true">
+        <img class="shot back" src="/assets/img/ulam-question.webp" width="640" height="889" alt="" loading="lazy" decoding="async">
+        <img class="shot front" src="/assets/img/ulam-spiral.webp" width="640" height="889" alt="" loading="lazy" decoding="async">
+      </div>
+    </article>
+  </section>
+
+  <!-- ─────────────────────────  PROJECT GRID  ───────────────────────── -->
+  <section class="wrap" id="projects">
+    <p class="eyebrow" data-pl="Co jeszcze zbudowałem">What else I built</p>
+    <h2 data-pl="Reszta warsztatu">The rest of the workshop</h2>
+    <p class="lede narrow" data-pl="Trzy statusy, bez ściemy. <b class='c-cyan'>Cyjan</b> — działa i możesz wejść. <b class='c-violet'>Fiolet</b> — jeszcze w budowie. <b>Puste kółko</b> — prywatne, bo trzyma dane mojej rodziny.">Three statuses, no spin. <b class="c-cyan">Cyan</b> — it runs and you can open it. <b class="c-violet">Violet</b> — still being built. <b>Empty ring</b> — private, because it holds my family's data.</p>
+
+    <!-- To add a project: copy one <article class="card"> block and change it.
+         status = live | wip | private. Keep the data-pl attribute on every text node. -->
+    <div class="cards">
+
+      <article class="card">
+        <p class="status live mono"><i class="dot"></i><span data-pl="Działa · publicznie">Live · public</span></p>
+        <h3>Kvasir</h3>
+        <p data-pl="Jedna strona, jedna odpowiedź: którego agenta AI uruchomić do tego zadania, dzisiaj. Łączy trzy publiczne źródła — CursorBench (koszt i kroki na zadanie), AI Stupid Level (czy model po cichu głupieje) i cennik GitHub Copilota — i nigdy nie pokazuje liczby bez poziomu wysiłku, przy którym ją zmierzono.">One page, one answer: which AI agent to start for this task, today. It merges three public sources — CursorBench (cost and steps per real task), AI Stupid Level (whether a model is quietly getting worse) and GitHub Copilot pricing — and never shows a number without the effort level it was measured at.</p>
+        <p class="chips mono">Python · FastAPI · SQLite</p>
+        <p class="card-link"><a href="https://kvasir.blinkneuron.eu" rel="noopener">kvasir.blinkneuron.eu →</a></p>
+      </article>
+
+      <article class="card">
+        <p class="status wip mono"><i class="dot"></i><span data-pl="W budowie">In progress</span></p>
+        <h3>Minerals</h3>
+        <p data-pl="Gra o wydobyciu asteroid na telefon. Wybierasz skałę z mapy sektora, lecisz, przewiercasz się palcem przez przekrój, wracasz z urobkiem, sprzedajesz, ulepszasz statek. Ekonomia jest w całości na liczbach całkowitych, a sektor i każda siatka górnicza to czyste funkcje ziarna — dzięki temu zapis gry nie psuje się między wersjami.">An asteroid-mining game for a phone. Pick a rock off the sector chart, fly there, drill through its cross-section with a finger, haul the ore home, sell, upgrade the ship. The economy is integer-only and both the sector and every mining grid are pure functions of their seeds, so a save never breaks between versions.</p>
+        <p class="chips mono">React · TypeScript · Canvas 2D · PWA</p>
+      </article>
+
+      <article class="card">
+        <p class="status wip mono"><i class="dot"></i><span data-pl="W budowie · deck publiczny">In progress · public deck</span></p>
+        <h3>talented-hr</h3>
+        <p data-pl="System, który odpowiada na jedno pytanie: kto pasuje do tej roli, w tym projekcie, w tym zespole — i dlaczego. Nie zwraca werdyktu ani gołej liczby. Każdy wynik niesie swoje twarde niedopasowania, wkład każdego składnika i pisemne uzasadnienie. Tylko tak taki system wolno postawić pod RODO i AI Act.">A system that answers one question: who fits this role, on this project, in this team — and why. It returns no verdict and no bare score. Every result carries its hard mismatches, the contribution of each term and a written justification. That is the only way such a system may stand under the GDPR and the AI Act.</p>
+        <p class="chips mono">Python · FastAPI · SQLite</p>
+        <p class="card-link"><a href="https://decks.blinkneuron.eu" rel="noopener" data-pl="Zobacz deck →">See the deck →</a></p>
+      </article>
+
+      <article class="card">
+        <p class="status private mono"><i class="dot"></i><span data-pl="Prywatne · rodzinne">Private · family</span></p>
+        <h3>Harpa</h3>
+        <p data-pl="Bierze prawdziwą piosenkę i zamienia ją w sekwencję klawiszy, którą dziecko naprawdę zagra na keyboardzie, w tempie. Powstała po to, żeby dziecko <b>chciało</b> usiąść do instrumentu. Import utworu z linku jest automatyczny; jedyne, co zostaje po człowieku, to test uchem.">It takes a real song and turns it into a key sequence a child can actually play on a keyboard, in tempo. It exists so that a kid <b>wants</b> to sit down at the instrument. Importing a song from a URL is automatic; the only human part left is the ear test.</p>
+        <p class="chips mono">Python · FastAPI · PWA</p>
+      </article>
+
+      <article class="card">
+        <p class="status private mono"><i class="dot"></i><span data-pl="Prywatne · rodzinne">Private · family</span></p>
+        <h3>DadQuest</h3>
+        <p data-pl="Wspólne odkrywanie świata z dziećmi, w formie questów. Pierwsza linia to zdobyte szczyty; zamki, jaskinie i trasy rowerowe czekają jako kolejne moduły. Nowa funkcja jest tu modułem, nigdy łatką w rdzeniu.">Exploring the real world with my kids, gamified. Mountains are the first quest line; castles, caves and bike routes wait as sibling modules. A new feature here is a module, never a patch to the core.</p>
+        <p class="chips mono">Node · SQLite · React</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ───────────────────────────  METHOD  ───────────────────────────── -->
+  <section class="wrap">
+    <p class="eyebrow" data-pl="Jak to powstaje">How this gets built</p>
+    <h2 data-pl="Akceleracja AI to nie wymówka od inżynierii">AI acceleration is not an excuse from engineering</h2>
+
+    <ol class="method">
+      <li>
+        <span class="num mono">01</span>
+        <h3 data-pl="Najpierw sprawdzam, czy to już istnieje.">First I check whether it already exists.</h3>
+        <p data-pl="Zanim cokolwiek powstanie, szukam właściciela tematu — w swoim ekosystemie i w świecie. Wynalezienie koła, które gdzieś już się kręci, to błąd, a nie neutralna decyzja.">Before anything gets built I look for the owner of the subject — in my own ecosystem and in the world. Reinventing a wheel that already turns somewhere is a defect, not a neutral decision.</p>
+      </li>
+      <li>
+        <span class="num mono">02</span>
+        <h3 data-pl="Każdy projekt ma jedną rzecz, która nie może się zepsuć.">Every project has one thing that must never break.</h3>
+        <p data-pl="W Ulamie: pytanie niesie odpowiedź, którą przyjmie, i ta odpowiedź jest poprawna — zła odpowiedź w apce do matematyki jest gorsza niż brak apki. W Minerals: ekonomia jest całkowitoliczbowa, a generowanie deterministyczne. Ta jedna własność ma nazwany test i ten test musi być zielony.">In Ulam: a question carries the answer it will accept, and that answer is right — a wrong answer in a child's maths app is worse than no app. In Minerals: the economy is integer-only and generation is deterministic. That one property has a named test, and the test has to stay green.</p>
+      </li>
+      <li>
+        <span class="num mono">03</span>
+        <h3 data-pl="Myślę głośno i nie po kolei.">I think out loud, and not in a straight line.</h3>
+        <p data-pl="Mam ADHD. Wątki się przeplatają, a dygresja przychodzi w środku zdania. Zamiast z tym walczyć, zbudowałem sobie pipeline: mówię myśl, lokalny Whisper ją zapisuje, a narzędzie składa z niej uporządkowany prompt. Na wejściu chaos, na wyjściu struktura.">I have ADHD. Threads interleave and a digression arrives in the middle of a sentence. Instead of fighting that, I built a pipeline for it: I speak the thought, a local Whisper writes it down, and a tool folds it into an ordered prompt. Chaos goes in, structure comes out.</p>
+      </li>
+      <li>
+        <span class="num mono">04</span>
+        <h3 data-pl="Reguły są spisane, bo AI pisze szybciej, niż ja czytam.">The rules are written down, because AI writes faster than I read.</h3>
+        <p data-pl="Wszystkie projekty dzielą jedną konstytucję: zasada języka, jak wolno wprowadzać zmianę, doktryna wdrożenia, gdzie mieszkają klucze do podpisu. Agent dostaje ją na starcie sesji, więc nie musi zgadywać, jak się tu pracuje.">Every project shares one constitution: the language rule, how a change may be made, the deploy doctrine, where the signing keys live. An agent gets it at the start of a session, so it never has to guess how the work is done here.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ──────────────────────────  STRENGTHS  ─────────────────────────── -->
+  <section class="wrap">
+    <p class="eyebrow" data-pl="Skąd to się bierze">Where this comes from</p>
+    <h2 data-pl="Pięć rzeczy, które robię bez wysiłku">Five things I do without trying</h2>
+    <p class="lede narrow" data-pl="Z testu CliftonStrengths 34 (12 grudnia 2020). Są tu nie dla ozdoby, tylko dlatego, że widać je w kodzie.">From CliftonStrengths 34 (12 December 2020). They are here not as decoration, but because you can see them in the code.</p>
+
+    <ol class="strengths">
+      <li>
+        <span class="rank">1</span>
+        <div>
+          <h3 data-pl="Analityk">Analytical</h3>
+          <p data-pl="Zanim uwierzę, szukam dowodu. Dlatego żadna liczba na Kvasirze nie pojawia się bez poziomu wysiłku, przy którym ją zmierzono.">Before I believe it, I look for the proof. That is why no number on Kvasir appears without the effort level it was measured at.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rank">2</span>
+        <div>
+          <h3 data-pl="Odpowiedzialność">Responsibility</h3>
+          <p data-pl="Wzięte znaczy skończone. Aplikacja dla własnego dziecka nie może zepsuć mu się w rękach i musi działać, kiedy domowy serwer śpi.">Taken on means finished. An app for my own child cannot break in his hands, and it has to work when the home server is asleep.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rank">3</span>
+        <div>
+          <h3 data-pl="Naprawianie">Restorative</h3>
+          <p data-pl="Najbardziej lubię moment, w którym coś jest zepsute i widać, że da się to rozłożyć. Większość tych projektów zaczyna się dokładnie tam.">My favourite moment is the one where something is broken and it is clear it can be taken apart. Most of these projects start exactly there.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rank">4</span>
+        <div>
+          <h3 data-pl="Zgodność">Harmony</h3>
+          <p data-pl="Szukam wersji, na którą wszyscy mogą przystać. W kodzie wychodzi to jako jedna konstytucja dla wszystkich projektów zamiast osobnych zwyczajów w każdym.">I look for the version everyone can live with. In the code that shows up as one constitution for all the projects, instead of separate habits in each of them.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rank">5</span>
+        <div>
+          <h3 data-pl="Zbieranie">Input</h3>
+          <p data-pl="Zbieram materiał, zanim zbuduję. Ulam zaczął się od korpusu 1038 zadań konkursowych z dziesięciu lat, a dopiero potem dostał pierwszy ekran.">I gather the material before I build. Ulam started as a corpus of 1038 contest tasks from ten years, and only then got its first screen.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="footnote mono" data-pl="Domena wiodąca: Wykonywanie (Executing).">Leading domain: Executing.</p>
+  </section>
+
+</main>
+
+<footer class="site-foot" id="contact">
+  <div class="wrap foot-row">
+    <div>
+      <p class="foot-lead" data-pl="Chcesz pogadać albo coś sprawdzić?">Want to talk, or try something out?</p>
+
+      <!-- Written out rather than linked, so a harvester has to work for it. -->
+      <p class="address">krzysztof <span class="at">[at]</span> blinkneuron.eu<button
+        type="button" class="copy mono" data-pl="Kopiuj" hidden>Copy</button></p>
+      <p class="address-hint mono" data-pl="Zamień [małpa] na @ — dzięki temu roboty tego nie zbierają.">Swap [at] for @ — that is what keeps the harvesters off.</p>
+
+      <p class="foot-links">
+        <a href="https://github.com/morphem" rel="noopener">GitHub</a>
+        <span class="sep">·</span>
+        <a href="/ulam/privacy/" data-pl="Polityka prywatności Ulama">Ulam privacy policy</a>
+      </p>
+    </div>
+    <p class="foot-note mono" data-pl="Ta strona jest statyczna. Nie zbiera niczego: bez analityki, bez cookies, bez skryptów z zewnątrz. Wybór języka i motywu zapisuje się w Twojej przeglądarce i nigdzie stąd nie wychodzi.">This page is static. It collects nothing: no analytics, no cookies, no third-party scripts. Your language and theme choice is stored in your own browser and goes nowhere.</p>
+  </div>
+  <div class="wrap foot-mark">
+    <span class="wordmark small"><span>blink</span><b>neuron</b></span>
+    <span class="mono">Krzysztof Prawdzik · blinkneuron.eu</span>
+  </div>
+</footer>
+
+<script src="/assets/app.js" defer></script>
+</body>
+</html>

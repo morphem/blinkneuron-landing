@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Applied before the first paint, so a stored theme never flashes the other one. -->
+<script>try{var t=localStorage.getItem('bn.theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>404 — BlinkNeuron</title>
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/icon-32.png" sizes="32x32">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <div>
+      <a class="wordmark" href="/" aria-label="BlinkNeuron"><span>blink</span><b>neuron</b></a>
+      <p class="byline mono">Krzysztof Prawdzik · BlinkNeuron</p>
+    </div>
+    <div class="controls" hidden>
+      <button type="button" class="theme-btn" id="theme" aria-label="Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+          <path fill="currentColor" d="M20.7 14.2A8.6 8.6 0 0 1 9.8 3.3a.8.8 0 0 0-1.1-.9 9.9 9.9 0 1 0 12.9 12.9.8.8 0 0 0-.9-1.1Z"/>
+        </svg>
+        <svg class="i-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6"/>
+          </g>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap doc">
+  <p class="eyebrow">404</p>
+  <h1>Tej strony tu nie ma.</h1>
+  <p>Ten adres nic nie zwraca. Możliwe, że coś jeszcze nie powstało — albo już się przeniosło.</p>
+  <p class="cta-row"><a class="btn" href="/">Wróć na stronę główną</a></p>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-mark">
+    <span class="wordmark small"><span>blink</span><b>neuron</b></span>
+    <span class="mono">Krzysztof Prawdzik · blinkneuron.eu</span>
+  </div>
+</footer>
+
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
