@@ -257,7 +257,6 @@ main > section { margin-top: var(--section); }
   border-radius: 16px; border: 1px solid var(--edge-2);
   box-shadow: var(--e2); background: #232c60;
 }
-.shot.front { margin-top: 2rem; }
 
 /* ── project cards ─────────────────────────────────────────────────────── */
 
