@@ -66,6 +66,30 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://blinkneuron.eu/ulam/privacy/
 curl -sS -o /dev/null -w '%{http_code}\n' https://kvasir.blinkneuron.eu   # still 200
 ```
 
+### If the certificate never arrives
+
+**This happened on the first run, 2026-08-26.** The custom domain was set while the apex
+still pointed at the registrar's parking page. GitHub ran its domain check, failed it, and
+then sat at `https_certificate: null` for over an hour after DNS was correct. Neither a
+fresh build nor re-sending the same `cname` restarted it.
+
+What fixed it: **remove the custom domain and put it back**, which is a two-commit dance
+here because the branch build reads `CNAME` from the repository.
+
+```bash
+git rm CNAME && git commit -m "Drop the CNAME file to reset the Pages domain check" && git push
+gh api repos/morphem/blinkneuron-landing/pages -q '.cname'      # wait for null
+printf 'blinkneuron.eu\n' > CNAME
+git add CNAME && git commit -m "Restore the CNAME file" && git push
+gh api repos/morphem/blinkneuron-landing/pages -q '.https_certificate.state'
+```
+
+The state went `none` -> `authorization_pending` -> `approved` inside one build. The apex
+answers a GitHub 404 for the two or three minutes between the builds.
+
+Rule for next time: **point DNS first, add the custom domain second.** Doing it the other
+way round costs an hour.
+
 The certificate takes a few minutes after the DNS change. Then turn HTTPS on:
 
 ```bash
