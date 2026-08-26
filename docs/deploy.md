@@ -17,34 +17,30 @@ is a documented exception. Two reasons, both hard:
 If DNS later moves to Cloudflare (`homelab/BACKLOG.md`), this stays true — Cloudflare would
 just flatten a CNAME at the apex. Nothing here has to be undone first.
 
-## 1. The repository
+## 1. The repository — **done 2026-08-26**
+
+<https://github.com/morphem/blinkneuron-landing>, public, `main`. The repository has to stay
+public, or GitHub Pages needs a paid plan.
+
+## 2. Pages — **done 2026-08-26**
+
+Publishing from `main` at `/`. GitHub read the custom domain out of the `CNAME` file, so
+`cname` is already `blinkneuron.eu`.
 
 ```bash
-cd ~/projects/landing-page
-git init && git add -A
-git commit -m "Landing page for blinkneuron.eu"
-gh repo create blinkneuron-landing --public --source=. --remote=origin --push
+gh api repos/morphem/blinkneuron-landing/pages          # source, cname, status
+gh api repos/morphem/blinkneuron-landing/pages/builds/latest
 ```
 
-The repository has to be **public**, or GitHub Pages needs a paid plan.
+`CNAME` and `.nojekyll` are in the repository. Leave both. `CNAME` keeps the custom domain
+across redeploys, and `.nojekyll` stops Jekyll from touching the files.
 
-## 2. Turn on Pages
-
-```bash
-gh api -X POST repos/morphem/blinkneuron-landing/pages \
-  -f 'source[branch]=main' -f 'source[path]=/'
-gh api -X PUT repos/morphem/blinkneuron-landing/pages -f cname=blinkneuron.eu -F https_enforced=true
-```
-
-Or in the browser: *Settings → Pages → Deploy from a branch → `main` / `/ (root)`*, then
-*Custom domain* → `blinkneuron.eu` → *Enforce HTTPS*.
-
-`CNAME` and `.nojekyll` are already in the repository. Leave both. `CNAME` is what keeps the
-custom domain across redeploys, and `.nojekyll` stops Jekyll from touching the files.
-
-## 3. DNS at domeny.tv
+## 3. DNS at domeny.tv — **the remaining step, and it needs the registrar login**
 
 Today the apex answers `185.221.110.23` — the registrar's parking page. Replace it.
+
+Until this is done, `https://morphem.github.io/blinkneuron-landing/` only redirects to
+`blinkneuron.eu`, so the page cannot be seen anywhere yet.
 
 | Type | Name | Value |
 |---|---|---|
@@ -70,8 +66,14 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://blinkneuron.eu/ulam/privacy/
 curl -sS -o /dev/null -w '%{http_code}\n' https://kvasir.blinkneuron.eu   # still 200
 ```
 
-The certificate takes a few minutes after the DNS change. *Enforce HTTPS* stays greyed out
-until GitHub has issued it.
+The certificate takes a few minutes after the DNS change. Then turn HTTPS on:
+
+```bash
+gh api -X PUT repos/morphem/blinkneuron-landing/pages -F https_enforced=true
+```
+
+**Do not touch the MX record.** Mail for the domain runs on Google (`smtp.google.com`), which
+is what makes `krzysztof@blinkneuron.eu` deliverable.
 
 ## 5. Then tell Google Play
 
