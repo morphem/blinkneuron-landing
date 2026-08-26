@@ -315,6 +315,21 @@ main > section { margin-top: var(--section); }
 .strengths p { color: var(--dim); font-size: 0.94rem; margin-top: 0.25rem; max-width: 68ch; }
 .footnote { margin-top: 1.1rem; color: var(--faint); }
 
+/* The personal note that closes the section. Same panel as the featured project, so it
+   reads as a considered aside rather than a new kind of box. */
+.epilogue {
+  margin-top: 2.4rem;
+  background: var(--sink);
+  border: 1px solid var(--edge);
+  border-radius: 18px;
+  padding: clamp(1.4rem, 3.2vw, 2.3rem);
+  max-width: 74ch;
+}
+.epilogue h3 { font-size: 1.12rem; margin-bottom: 0.9rem; }
+.epilogue p { color: var(--dim); font-size: 0.98rem; margin-top: 0.95rem; }
+.epilogue p:first-of-type { margin-top: 0; }
+.epilogue b { color: var(--ink); font-weight: 600; }
+
 /* ── footer ────────────────────────────────────────────────────────────── */
 
 .site-foot { margin-top: var(--section); border-top: 1px solid var(--edge); padding-block: 2.5rem 2rem; }
